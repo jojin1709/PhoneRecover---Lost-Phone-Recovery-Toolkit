@@ -1,0 +1,54 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+.eggs/
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+MANIFEST
+
+# Runtime logs and state from PHOENIX
+phoenix_log.txt
+phoenix_results.json
+
+# Generated output folders populated at runtime
+output/
+
+# Generated artifacts inside modules/ (keep the .py source files)
+modules/*.txt
+modules/*.json
+modules/__pycache__/
+
+# Go tracker outputs (keep main.go and go.mod)
+tracker-go/tracker-go
+tracker-go/tracker-go.exe
+tracker-go/ip_track_results.json
+tracker-go/network_scan_results.json
+tracker-go/trace_results.txt
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screenshots / assets
+Screenshot_*.png
+Buy me a caffe img/
+
+# User-specific config / secrets
+user_config.json
