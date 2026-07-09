@@ -32,23 +32,23 @@ python PHOENIX.py
 
 | Feature | Description |
 |---------|-------------|
-| **IMEI Check** | Validates IMEI and checks blacklist status |
+| **IMEI Check** | Validates IMEI and checks blacklist status via public lookup references |
 | **Google Find My Device** | Generates direct links to locate your phone |
 | **Apple Find My** | iCloud Find My links and lost-mode guidance |
 | **Carrier Scripts** | Ready-to-use scripts for Jio, Airtel, VI, BSNL |
 | **Police Report** | Generates FIR-ready incident report |
-| **Cell Tower GPS** | Converts LAC + Cell ID to GPS coordinates |
-| **IP Tracker** | Traces IP addresses to city/ISP/lat-lon |
+| **Cell Tower GPS** | Converts LAC + Cell ID to GPS coordinates if carrier provides it |
+| **IP Tracker** | Traces IP addresses to city, ISP, and lat/lon |
 | **EXIF GPS** | Extracts GPS from photos if available |
-| **SIM Swap Detector** | Detects duplicate SIM activations |
-| **Marketplace Watcher** | Monitors OLX, Facebook, Quikr for resale |
+| **SIM Swap Detector** | Generates duplicate SIM detection plan for carrier |
+| **Marketplace Watcher** | Opens OLX, Facebook, Quikr to search for resale |
 | **Alert System** | Telegram/email/SMS alert templates |
-| **Recovery Logger** | Logs all actions and outcomes |
-| **Cloud Backup Audit** | Checks Google/iCloud backup status |
-| **Timeline Importer** | Imports Google Takeout location history |
-| **Remote Commands** | Android Lost / Cerberus / Prey command executor |
+| **Recovery Logger** | Logs actions, timestamps, and outcomes |
+| **Cloud Backup Audit** | Checks Google/iCloud backup status manually |
+| **Timeline Importer** | Imports Google Takeout JSON location history |
+| **Remote Commands** | Android Lost / Cerberus / Prey command templates |
 | **Device Status** | Online/offline/battery status checklist |
-| **IMEI Blocking** | Official CEIR and carrier blocking portals |
+| **IMEI Blocking** | Official CEIR and carrier blocking portal links/workflows |
 
 ---
 
@@ -189,11 +189,11 @@ Or run `python setup.py` again.
                     ↓
 ┌─────────────────────────────────────────────┐
 │  2. User runs phonerecover.py / PHOENIX.py  │
-│     → Tool generates all reports/scripts    │
+│     → Tool generates reports/scripts/plans  │
 └─────────────────────────────────────────────┘
                     ↓
 ┌─────────────────────────────────────────────┐
-│  3. User takes action                       │
+│  3. User takes real-world action            │
 │     ├── Opens Google Find My Device         │
 │     ├── Calls carrier for tower data        │
 │     ├── Files FIR with generated report     │
@@ -202,11 +202,19 @@ Or run `python setup.py` again.
 └─────────────────────────────────────────────┘
                     ↓
 ┌─────────────────────────────────────────────┐
-│  4. If tower data obtained (LAC+Cell ID)    │
+│  4. If carrier provides LAC + Cell ID       │
 │     → Run law_enforcement_tower_tracker.py  │
-│     → Gets exact GPS coordinates            │
+│     → Gets GPS coordinates                  │
+│                                              │
+│     If device is online                     │
+│     → Google/Apple Find My shows live dot   │
+│                                              │
+│     If IP is found                          │
+│     → tracker-go gives city/ISP/lat-lon     │
 └─────────────────────────────────────────────┘
 ```
+
+**Important:** this toolkit automates paperwork, reports, scripts, and GPS conversion. It does not bypass carriers, hack devices, or provide live tracking by itself.
 
 ---
 
@@ -273,6 +281,28 @@ This tool is for **legitimate recovery of your own lost/stolen device** only.
 - This tool does not bypass carrier security or hack any system
 - All carrier/legal requests must go through proper channels
 - The tool cannot magically locate a phone without data from carrier/Google/Apple
+
+## ❌ What This Tool Cannot Do
+
+- **No live tracking without data** — there is no magic location feature. Exact tracking only works if you already have one of these:
+  - LAC + Cell ID from the carrier
+  - IP address from Google/Apple activity logs
+  - The device is online in Find My Device / Find My iPhone
+- **No carrier bypass** — it cannot pull CDR or tower data without an official request through legal channels.
+- **No real-time CEIR alerts by itself** — SIM-change alerts require filing through the CEIR portal or carrier process.
+- **No IMSI-catcher** — that requires physical hardware deployment; this toolkit does not include that capability.
+
+## ✅ What This Tool Actually Does
+
+- Organizes your case details: IMEI, phone number, email, carrier, model
+- Generates carrier request scripts and formal letters for Jio, Airtel, VI, BSNL
+- Generates FIR-ready police reports and evidence summaries
+- Builds CEIR and legal request templates
+- Converts tower data to GPS coordinates if you obtain LAC + Cell ID
+- Traces IP addresses to city, ISP, and lat/lon when given an IP
+- Checks IMEI blacklist status through public lookup references
+- Generates Apple Find My and Google Find My Device links
+- Helps monitor resale sites and logs recovery actions
 
 ---
 
