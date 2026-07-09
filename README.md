@@ -10,8 +10,8 @@ Works on **Windows, macOS, Linux, and Kali Linux**.
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<YOUR_USERNAME>/PhoneRecover.git
-cd PhoneRecover
+git clone https://github.com/jojin1709/PhoneRecover---Lost-Phone-Recovery-Toolkit.git
+cd PhoneRecover---Lost-Phone-Recovery-Toolkit
 
 # 2. Install dependencies
 pip install -r requirements.txt
